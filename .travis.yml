@@ -1,0 +1,7 @@
+services:
+  - docker
+install:
+  - docker build -t sdal/httpd-ldap-ssh-c7 .
+  - docker run -dit -v /sys/fs/cgroup:/sys/fs/cgroup:ro --cap-add=SYS_ADMIN sdal/httpd-ldap-ssh-c7
+script:
+- docker ps | grep -q sdal/httpd-ldap-ssh-c7
